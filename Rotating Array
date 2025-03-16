@@ -1,0 +1,21 @@
+#include <bits/stdc++.h> 
+vector<int> rotateArray(vector<int>arr, int k) {
+    int n=arr.size();
+    k=k % arr.size();
+    vector<int> temp(k);
+     for (int i = 0; i < k; i++) {
+        temp[i] = arr[i];
+    }
+
+    // Shift remaining elements left
+    for (int i = k; i < n; i++) {
+        arr[i - k] = arr[i];
+    }
+
+    // Copy temp elements to the end of arr
+    for (int i = 0; i < k; i++) {
+        arr[n - k + i] = temp[i];
+    }
+
+    return arr;
+}
